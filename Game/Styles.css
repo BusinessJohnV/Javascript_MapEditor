@@ -1,0 +1,22 @@
+body {
+    font-family: "Nunito Sans";
+}
+
+.field-square {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(162, 172, 172);
+}
+
+.field-square:hover {
+    background-color: rgb(102, 109, 109);
+}
+
+.main-field {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+}
+
+.grass {
+    background-color: green;
+}
