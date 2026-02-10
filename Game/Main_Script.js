@@ -1,11 +1,22 @@
 const Field = document.querySelector('.main-field');
+const StartBtn = document.querySelector('.generate');
+const FWidth = document.querySelector('#width');
+const FHeight = document.querySelector('#height');
 
-var Width = 20;
-var Height = 20;
+let generated = false;
 
-for (let i = 0; i < Height * Width; i++) {
-    var div = document.createElement("div");
-    div.classList.add("field-square");
+StartBtn.addEventListener('click', () => {
+    var width = Number(FWidth);
+    var height = Number(FHeight);
 
-    Field.append(div);
-}
+    if (!generated) {
+        for (let i = 0; i < height * width; i++) {
+            var div = document.createElement("div");
+            div.classList.add("field-square");
+            
+            Field.append(div);
+            generated = true;
+        }
+    }
+});
+
