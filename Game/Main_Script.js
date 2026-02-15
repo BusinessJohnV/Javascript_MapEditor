@@ -35,7 +35,7 @@ function changeFieldType(square) {
         square.classList.remove('grass');
         square.classList.add('road');
     }
-    else if (square.classList.contains('road')) {
+    else if (square.classList.contains('straight_road')) {
         square.classList.remove('road');
         square.classList.add('water');
     }

@@ -22,14 +22,42 @@ body {
     border-width: 1px;
 }
 
-.straight_road {
+.straight_road_horizontal {
     background-image: url(../img/Straight_Road.png);
     background-size: 100% 100%;
     border-style: dashed;
     border-width: 1px;
 }
 
-.curved_road {
+.straight_road_vertical {
+    background-image: url(../img/Straight_Road.png);
+    background-size: 100% 100%;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.curved_road_right_up {
+    background-image: url(../img/Curved_Road.png);
+    background-size: 100% 100%;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.curved_road_left_up {
+    background-image: url(../img/Curved_Road.png);
+    background-size: 100% 100%;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.curved_road_right_down {
+    background-image: url(../img/Curved_Road.png);
+    background-size: 100% 100%;
+    border-style: dashed;
+    border-width: 1px;
+}
+
+.curved_road_left_down {
     background-image: url(../img/Curved_Road.png);
     background-size: 100% 100%;
     border-style: dashed;
