@@ -165,6 +165,30 @@ body {
   box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
 }
 
+.save-dialogue button.export-map {
+  padding: 0.7rem 1.8rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+  white-space: nowrap;
+}
+
+.save-dialogue button.export-map:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.save-dialogue button.export-map:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
+}
+
 .main-menu {
   display: flex;
   align-items: center;
@@ -186,7 +210,8 @@ body {
 }
 
 .main-menu input[type="number"],
-.main-menu input[type="text"] {
+.main-menu input[type="text"],
+.main-menu select {
   padding: 0.6rem 0.8rem;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
@@ -196,6 +221,7 @@ body {
   color: #333;
   transition: all 0.3s ease;
   outline: none;
+  font-family: "Nunito Sans";
 }
 
 .main-menu input[type="number"] {
@@ -206,14 +232,20 @@ body {
   width: 150px;
 }
 
+.main-menu select {
+  width: 200px;
+}
+
 .main-menu input[type="number"]:hover,
-.main-menu input[type="text"]:hover {
+.main-menu input[type="text"]:hover,
+.main-menu select:hover {
   background: #ffffff;
   border-color: rgba(255, 255, 255, 0.4);
 }
 
 .main-menu input[type="number"]:focus,
-.main-menu input[type="text"]:focus {
+.main-menu input[type="text"]:focus,
+.main-menu select:focus {
   background: #ffffff;
   border-color: #ffffff;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
