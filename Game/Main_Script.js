@@ -11,6 +11,8 @@ const LoadBtn = document.querySelector('.map-load');
 const MapNameSelect = document.querySelector('select[name="map-name"]');
 const BackToMenuBtn = document.querySelector('.back-to-menu');
 const ExportBtn = document.querySelector('.export-map');
+const ImportFile = document.querySelector('input[name="map-import"]');
+const ImportBtn = document.querySelector('.map-import');
 
 let generated = false;
 
@@ -43,6 +45,7 @@ BackToMenuBtn.addEventListener('click', () => {
 })
 
 ExportBtn.addEventListener('click', ExportMap);
+ImportBtn.addEventListener('click', ImportMap);
 
 function generateField(fieldwidth, fieldheight) {
     Field.childNodes.forEach(c => c.remove());
@@ -206,4 +209,33 @@ function ExportMap() {
     a.remove();
 
     URL.revokeObjectURL(url);
+}
+
+function ImportMap() {
+    Menu.classList.add('hidden');
+    
+    const file = ImportFile.files[0];
+    if (!file) {
+        alert("Vyber soubor k importu.");
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            const json = JSON.parse(e.target.result);
+            generateField(json.width, json.height);
+
+            const squares = document.querySelectorAll('.field-square');
+            squares.forEach((square, index) => {
+                square.className = "field-square " + json.grid[index];
+            });
+
+            alert("Mapa importována.");
+        } catch (err) {
+            alert("Chyba při načítání JSON: " + err.message);
+        }
+    };
+
+    reader.readAsText(file);
 }
