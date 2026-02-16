@@ -143,3 +143,83 @@ body {
   transform: translateY(0);
   box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
 }
+
+.main-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: fit-content;
+  margin: 2rem auto;
+}
+
+.main-menu label {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.main-menu input[type="number"],
+.main-menu input[type="text"] {
+  padding: 0.6rem 0.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.main-menu input[type="number"] {
+  width: 70px;
+}
+
+.main-menu input[type="text"] {
+  width: 150px;
+}
+
+.main-menu input[type="number"]:hover,
+.main-menu input[type="text"]:hover {
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.main-menu input[type="number"]:focus,
+.main-menu input[type="text"]:focus {
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.main-menu button {
+  padding: 0.7rem 1.8rem;
+  background: #ffffff;
+  color: #667eea;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
+}
+
+.main-menu button:hover {
+  background: #f8f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.main-menu button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}

@@ -7,6 +7,9 @@ const Menu = document.querySelector('.main-menu');
 const SavingDialogue = document.querySelector('.save-dialogue');
 const SaveBtn = document.querySelector('.map-save');
 const MapNameSave = document.querySelector('input[name="map-name-save"]');
+const LoadBtn = document.querySelector('.map-load');
+const MapNameLoad = document.querySelector('input[name="map-name-load"]');
+
 
 let generated = false;
 let squareWidth = 40;
@@ -27,6 +30,7 @@ Field.addEventListener('click', (e) => {
 });
 
 SaveBtn.addEventListener('click', saveMap);
+LoadBtn.addEventListener('click', loadMap);
 
 function generateField(fieldwidth, fieldheight) {
     if (!generated) {
@@ -105,4 +109,40 @@ function saveMap() {
 
     localStorage.setItem("map_" + name, JSON.stringify(mapData));
     alert("Mapa uložena.");
+}
+
+function loadMap() {
+    const name = MapNameLoad.value.trim();
+    if (!name) {
+        alert("Zadej název mapy.");
+        return;
+    }
+
+    const saved = localStorage.getItem("map_" + name);
+
+    if (!saved) {
+        alert("Mapa nenalezena.");
+        return;
+    }
+
+    const mapData = JSON.parse(saved);
+
+    Field.innerHTML = "";
+    generated = false;
+
+    FWidth.value = mapData.width;
+    FHeight.value = mapData.height;
+
+    generateField(mapData.width, mapData.height);
+
+    const squares = document.querySelectorAll('.field-square');
+
+    squares.forEach((square, index) => {
+        square.className = "field-square " + mapData.grid[index];
+    });
+
+    Menu.classList.remove('main-menu');
+    Menu.classList.add('hidden');
+
+    alert("Mapa načtena.");
 }
