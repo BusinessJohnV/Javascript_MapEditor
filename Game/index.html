@@ -17,20 +17,24 @@
             <input type="number" name="field-width" min="1" value="20" id="width">
             <label for="field-height">Šířka</label>
             <input type="number" name="field-height" min="1" value="20" id="height">
-            <button class="generate">Generate</button>
+            <button class="generate">Generovat</button>
 
             <label for="map-name-load">Název mapy:</label>
-            <input type="text" name="map-name-load" placeholder="Zadejte název mapy...">
-            <button class="map-load">Load Map</button>
+            <select name="map-name" id="map">
+                <option value="default" disabled selected>Vyberte jméno mapy</option>
+            </select>
+            <button class="map-load">Načíst Mapu</button>
         </div>
 
         <div class="save-dialogue hidden">
+            <button class="back-to-menu">Zpět do menu</button>
+
             <label for="map-name-save">Název mapy:</label>
             <input type="text" name="map-name-save" placeholder="Zadejte název mapy...">
-            <button class="map-save">Save Map</button>
+            <button class="map-save">Uložit Mapu</button>
         </div>
 
-        <div class="main-field"></div>
+        <div class="main-field hidden"></div>
 
         <script src="Main_Script.js"></script>
     </body>

@@ -8,20 +8,21 @@ const SavingDialogue = document.querySelector('.save-dialogue');
 const SaveBtn = document.querySelector('.map-save');
 const MapNameSave = document.querySelector('input[name="map-name-save"]');
 const LoadBtn = document.querySelector('.map-load');
-const MapNameLoad = document.querySelector('input[name="map-name-load"]');
+const MapNameSelect = document.querySelector('select[name="map-name"]');
+const BackToMenuBtn = document.querySelector('.back-to-menu');
 
 
 let generated = false;
-let squareWidth = 40;
-let squareHeight = 40;
+
+LoadMaps();
 
 StartBtn.addEventListener('click', () => {
     var width = Number(FWidth.value);
     var height = Number(FHeight.value);
 
-    Menu.classList.remove('main-menu');
     Menu.classList.add('hidden');
 
+    MapNameSave.textContent = "";
     generateField(width, height);
 });
 
@@ -32,23 +33,34 @@ Field.addEventListener('click', (e) => {
 SaveBtn.addEventListener('click', saveMap);
 LoadBtn.addEventListener('click', loadMap);
 
+BackToMenuBtn.addEventListener('click', () => {
+    Menu.classList.remove('hidden');
+    Field.classList.add('hidden');
+    SavingDialogue.classList.add('hidden');
+
+    generated = false;
+    LoadMaps();
+})
+
 function generateField(fieldwidth, fieldheight) {
-    if (!generated) {
-        for (let i = 0; i < Number(fieldheight) * Number(fieldwidth); i++) {
-            var div = document.createElement("div");
+    Field.childNodes.forEach(c => c.remove());
 
-            div.classList.add("field-square");
-            div.classList.add("grass");
-            
-            Field.append(div);
-        }
+    for (let i = 0; i < Number(fieldheight) * Number(fieldwidth); i++) {
+        var div = document.createElement("div");
 
-        SavingDialogue.classList.remove('hidden');
-
-        Field.style.width = squareWidth * Number(fieldwidth);
-        Field.style.height = squareHeight * Number(fieldheight);
-        generated = true;
+        div.classList.add("field-square", "grass");
+        
+        Field.append(div);
     }
+
+    Field.style.gridTemplateColumns = 'repeat(' + fieldwidth + ', 1fr)';
+
+    SavingDialogue.classList.remove('hidden');
+    Field.classList.remove('hidden');
+
+    Field.style.width = fieldwidth * 40 + 'px';
+    Field.style.height = fieldheight * 40 + 'px';
+    generated = true;
 }
 
 function changeFieldType(square) {
@@ -112,13 +124,13 @@ function saveMap() {
 }
 
 function loadMap() {
-    const name = MapNameLoad.value.trim();
+    const name = MapNameSelect.value.trim();
     if (!name) {
         alert("Zadej název mapy.");
         return;
     }
 
-    const saved = localStorage.getItem("map_" + name);
+    const saved = localStorage.getItem(name);
 
     if (!saved) {
         alert("Mapa nenalezena.");
@@ -126,12 +138,10 @@ function loadMap() {
     }
 
     const mapData = JSON.parse(saved);
+    MapNameSave.value = name;
 
     Field.innerHTML = "";
     generated = false;
-
-    FWidth.value = mapData.width;
-    FHeight.value = mapData.height;
 
     generateField(mapData.width, mapData.height);
 
@@ -141,8 +151,28 @@ function loadMap() {
         square.className = "field-square " + mapData.grid[index];
     });
 
-    Menu.classList.remove('main-menu');
     Menu.classList.add('hidden');
 
     alert("Mapa načtena.");
+}
+
+function LoadMaps() {
+    MapNameSelect.length = 1;
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+
+        if (key.startsWith("map_")) {
+            const value = JSON.parse(localStorage.getItem(key));
+            
+            var opt = document.createElement('option');
+            opt.value = key;
+            opt.textContent = key;
+
+            console.log(opt);
+            console.log(opt.value);
+
+            MapNameSelect.append(opt);
+        }
+    }
 }

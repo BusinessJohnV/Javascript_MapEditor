@@ -1,78 +1,75 @@
 body {
-    font-family: "Nunito Sans";
+  font-family: "Nunito Sans";
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .field-square {
-
+  width: 40px;
+  height: 40px;
 }
 
 .main-field {
-    display: grid;
-    width: 840px;
-    height: 840px;
-    grid-template-columns: repeat(20, 1fr);
-    margin-top: 10px;
+  display: grid;
+  margin-top: 10px;
 }
 
 .grass {
-    background-image: url(../img/Grass.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Grass.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .straight_road_horizontal {
-    background-image: url(../img/Straight_Road_1.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Straight_Road_1.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .straight_road_vertical {
-    background-image: url(../img/Straight_Road_2.png);
-    background-size: 100% 100%;
-    background-position: rotate(90deg);
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Straight_Road_2.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .curved_road_right_up {
-    background-image: url(../img/Curved_Road_1.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Curved_Road_1.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .curved_road_left_up {
-    background-image: url(../img/Curved_Road_2.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Curved_Road_2.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .curved_road_right_down {
-    background-image: url(../img/Curved_Road_3.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Curved_Road_3.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .curved_road_left_down {
-    background-image: url(../img/Curved_Road_4.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Curved_Road_4.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .water {
-    background-image: url(../img/Water.png);
-    background-size: 100% 100%;
-    border-style: dashed;
-    border-width: 1px;
+  background-image: url(../img/Water.png);
+  background-size: 100% 100%;
+  border-style: dashed;
+  border-width: 1px;
 }
 
 .save-dialogue {
@@ -140,6 +137,30 @@ body {
 }
 
 .save-dialogue button.map-save:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
+}
+
+.save-dialogue button.back-to-menu {
+  padding: 0.7rem 1.8rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+  white-space: nowrap;
+}
+
+.save-dialogue button.back-to-menu:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.save-dialogue button.back-to-menu:active {
   transform: translateY(0);
   box-shadow: 0 1px 4px rgba(102, 126, 234, 0.3);
 }
