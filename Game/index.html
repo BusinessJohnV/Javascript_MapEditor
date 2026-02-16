@@ -12,16 +12,21 @@
     </head>
 
     <body>
-        <div class="navbar">
+        <div class="main-menu">
             <label for="field-width">Výška</label>
             <input type="number" name="field-width" min="1" value="20" id="width">
             <label for="field-height">Šířka</label>
             <input type="number" name="field-height" min="1" value="20" id="height">
             <button class="generate">Generate</button>
         </div>
-        <div class="main-field">
-            
+
+        <div class="save-dialogue hidden">
+            <label for="map-name-save">Název mapy:</label>
+            <input type="text" name="map-name-save" placeholder="Zadejte název mapy...">
+            <button class="map-save">Save Map</button>
         </div>
+
+        <div class="main-field"></div>
 
         <script src="Main_Script.js"></script>
     </body>
