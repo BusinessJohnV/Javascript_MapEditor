@@ -10,7 +10,7 @@ const MapNameSave = document.querySelector('input[name="map-name-save"]');
 const LoadBtn = document.querySelector('.map-load');
 const MapNameSelect = document.querySelector('select[name="map-name"]');
 const BackToMenuBtn = document.querySelector('.back-to-menu');
-
+const ExportBtn = document.querySelector('.export-map');
 
 let generated = false;
 
@@ -41,6 +41,8 @@ BackToMenuBtn.addEventListener('click', () => {
     generated = false;
     LoadMaps();
 })
+
+ExportBtn.addEventListener('click', ExportMap);
 
 function generateField(fieldwidth, fieldheight) {
     Field.childNodes.forEach(c => c.remove());
@@ -175,4 +177,33 @@ function LoadMaps() {
             MapNameSelect.append(opt);
         }
     }
+}
+
+function ExportMap() {
+    const squares = document.querySelectorAll('.field-square');
+    const grid = [];
+
+    squares.forEach(square => {
+        const type = [...square.classList].find(cls => cls !== 'field-square');
+        grid.push(type);
+    });
+
+    const mapData = {
+        width: Number(FWidth.value),
+        height: Number(FHeight.value),
+        grid: grid
+    };
+
+    var map = JSON.stringify(mapData);
+
+    var blob = new Blob([map], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = MapNameSave.value + ".json";
+    a.click();
+    a.remove();
+
+    URL.revokeObjectURL(url);
 }
