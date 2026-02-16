@@ -13,9 +13,9 @@
 
     <body>
         <div class="main-menu">
-            <label for="field-width">Výška</label>
+            <label for="field-width">Výška:</label>
             <input type="number" name="field-width" min="1" value="20" id="width">
-            <label for="field-height">Šířka</label>
+            <label for="field-height">Šířka:</label>
             <input type="number" name="field-height" min="1" value="20" id="height">
             <button class="generate">Generovat</button>
 
@@ -24,6 +24,10 @@
                 <option value="default" disabled selected>Vyberte jméno mapy</option>
             </select>
             <button class="map-load">Načíst Mapu</button>
+
+            <label for="map-import">Soubor:</label>
+            <input type="file" name="map-import" id="map-import">
+            <button class="map-import">Importovat</button>
         </div>
 
         <div class="save-dialogue hidden">
